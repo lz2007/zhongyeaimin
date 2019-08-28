@@ -1,0 +1,89 @@
+<view class='body bg-img'>
+  <view class="flex padding justify-center">
+    <view class="bg-img center">
+      <image src='https://i.loli.net/2019/04/28/5cc5687eaefdf.png'></image>
+    </view>
+  </view>
+
+  <view class=" grid col-3 no-border text-center" hover-class="none" hover-stop-propagation="false">
+    <view class="cu-item margin-tb-sm" hover-stop-propagation="false" wx:for="{{iconList}}" wx:key="index">
+      <view class=" text-red hezi shadow "  id="{{index}}">
+        <!-- <view class="cu-tag badge" hover-class="none" hover-stop-propagation="false">99+</view> -->
+        <image src="{{item.icon}}"></image>
+
+        <view class=' text-center'>
+          <button class='cu-btn round bg-purple button-hover margin-bottom-sm' bindtap='click' data-id='{{activityid}}'data-index="{{index}}">点我看看</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+    <view class=" ">
+    <view class="grid col-1 margin-bottom text-center" >
+      <view class=" padding-tb-sm  text-black text-bold text-df">抽奖一次需消耗{{mfintegral}}积分，当前积分余额:{{integral}}</view>
+      <view class=" padding-bottom-sm text-pink text-df">（您还有0次免费抽奖的机会,5次消耗积分抽奖机会）</view>
+    </view>
+  </view>
+
+<view class='grid col-2 margin-bottom text-center'>
+<view class="padding-lr-sm flex flex-direction">
+  <button class="cu-btn bg-red round lg shadow" bindtap='guize'>活动规则</button>
+</view>
+<view class="padding-lr-sm flex flex-direction">
+  <button class="cu-btn bg-red round lg shadow" bindtap='jp'>我的奖品</button>
+</view>
+</view>
+
+<wxs module="func">
+            module.exports = {
+              catgory: function(id) {
+                switch (id) {
+                  case 1:
+                    return "特价券";
+                    break;
+                  case 2:
+                    return "买送券";
+                    break;
+                  case 3:
+                    return "第2件半价券";
+                    break;
+                  case 4:
+                    return "折扣券";
+                    break;
+                  case 5:
+                    return "满减券";
+                    break;
+                  case 6:
+                    return "代金券";
+                    break;
+                }
+              },
+               comput: function(id,config) {
+                switch (id) {
+                  case 1:
+                    return config.vip_price+"元特价券";
+                    break;
+                  case 2:
+                    return "买送券";
+                    break;
+                  case 3:
+                    return "第2件半价券";
+                    break;
+                  case 4:
+                    return discount+"折优惠";
+                    break;
+                  case 5:
+                    return "满"+money+"减"+reduce_money;
+                    break;
+                  case 6:
+                    return money+"代金券";
+                    break;
+                }
+              },
+              date:function( date){
+              return date.substring(0,10)
+              
+              }
+            }
+          </wxs>
+</view>

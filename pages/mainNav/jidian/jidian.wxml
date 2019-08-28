@@ -1,0 +1,30 @@
+<view class="cu-card case no-card">
+  <view class="cu-item shadow solid-bottom" wx:for="{{list}}" wx:key="index">
+    <view class="image" bindtap="jidianxq" data-id="{{item.id}}">
+      <image src="{{item.images}}" mode="widthFix"></image>
+      <view class="cu-tag bg-blue">活动</view>
+      <view class="cu-bar bg-shadeBottom">
+        <!-- <text class="text-cut">我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。</text> -->
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item ">
+        <view class=" flex-sub padding-left-lg">
+          <view class="text-black text-lg">{{item.name}}</view>
+          <view class="text-gray text-df flex justify-between">
+            活动时间：{{func.date(item.start_at)}}至{{func.date(item.end_at)}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 计算类型券的类型 -->
+  <wxs module="func">
+            module.exports = {
+              date:function( date){
+              return date.substring(0,10)
+              }
+            }
+          </wxs>
+</view>

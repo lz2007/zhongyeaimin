@@ -1,0 +1,9 @@
+/* pages/mainNav /jidianxq/jidianxq.wxss */
+.clo-6{
+  width:14%!important;
+}
+image{ 
+ height: 60rpx; 
+ width: 60rpx; 
+ display: inline-block
+}

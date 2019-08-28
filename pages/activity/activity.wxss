@@ -1,0 +1,4 @@
+/* pages/activity/activity.wxss */
+.content{
+  left: 20rpx !important;
+}

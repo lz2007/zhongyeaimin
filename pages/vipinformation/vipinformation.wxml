@@ -1,0 +1,88 @@
+<view class=" body">
+  <view class="cu-form-group margin-bottom solid-top">
+    <view class="title">完善个人信息</view>
+  </view>
+  <form bindsubmit='sub'>
+    <view class="cu-form-group margin-top">
+      <view class="title">昵称：</view>
+      <input placeholder="请输入昵称" name="nickname" value="{{nickname}}"></input>
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class="title">手机号：</view>
+      <input placeholder="请输入手机号" name="tel" value="{{tel}}"></input>
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class="title">性别：</view>
+      <picker bindchange="PickerChange" value="{{sex}}" range="{{picker}}" name="sex">
+        <view class="picker">
+          {{picker[sex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="cu-form-group margin-top">
+      <view class="title">生日：</view>
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="DateChange" name="birthday">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+    </view>
+     <view class="cu-form-group margin-top">
+    <view class="title">星座</view>
+    <picker bindchange="PickerChange1" value="{{constellation}}" range="{{xz}}" name="constellation">
+      <view class="picker">
+        {{constellation?xz[constellation]:'请选择星座'}}
+      </view>
+    </picker>
+  </view>
+    <view class="cu-form-group margin-top">
+    <view class="title">职业：</view>
+    <picker bindchange="PickerChange2" value="{{profession}}" range="{{zy}}" name="profession">
+      <view class="picker">
+        {{profession?zy[profession]:'请选择职业'}}
+      </view>
+    </picker>
+  </view>
+    <view class="cu-form-group margin-top">
+      <view class="title">我的标签：</view>
+        <button class="cu-btn round bg-red" bindtap='addlabel'>
+    <text class="icon-roundaddfill text-df" ></text> 添加标签</button>
+    </view>
+  <view class="cu-form-group " style='border:0; flex-wrap: wrap; justify-content:inherit; padding-bottom: 0rpx;'>
+      <view class="cu-btn round bg-blue margin-sm" wx:for="{{label}}" wx:key style="margin-bottom: 5rpx;">
+        {{item}}
+        <view class="cu-tag badge" bindtap='delabel' data-index='{{index}}'>x</view>
+      </view>
+    </view>
+  
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue  lg btn text-white" form-type="submit">保存</button>
+  </view>
+</form>
+  <!-- 弹出添加标签框 -->
+  <view class='toast-box round' wx:if='{{hidmodel}}'>
+        <view class='toastbg'></view>
+        <view class='showToast'>
+            <view class='toast-title bg-blue'>
+                <text>增加标签</text>
+            </view>
+            <view class='toast-main'>
+                <view class='toast-input'>
+                    <input placeholder='请输入标签' bindinput='setValue' data-name='stuEidtName'></input>
+                </view>
+            </view>
+            <view class='toast-button'>
+                <view class='button1'>
+                    <button catchtap='cancel' class='cu-btn bg-blue  lg btn text-white'>取消</button>
+                </view>
+                <view class='button2 '>
+                    <button catchtap='confirm' class='cu-btn bg-blue  lg btn text-white'>确定</button>
+                </view>
+            </view>
+        </view>
+        
+    </view>
+
+</view>

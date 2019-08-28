@@ -1,0 +1,86 @@
+<view class="body">
+  <view class="cu-bar  bg-white">
+    <view class="action0 text-black">
+      <text class="icon-title text-blue"></text>我的积分余额：{{integral}}分
+    </view>
+  </view>
+  
+  <!-- 优惠券信息 -->
+    <view class='cu-list menu-avatar' wx:for="{{jifen}}" wx:key >
+      <view class="cu-item padding-tb-sm  solid-bottom" >
+        <view class="cu-avatar radius lg" style="background-image:url({{item.card.images}});">
+        
+          <view class="cu-tag badge text-sm">{{func.catgory(item.card.catgory)}}</view>
+        </view>
+        <view class="content">
+          <view class=" flex grid col-1  ">
+            <view class="text-black">
+              {{item.card.name}}
+            </view>
+            <!-- 5元代金券 满20使用 -->
+            <view class='text-red text-df'>{{func.comput(item.card.catgory,item.card.config)}}</view>
+            <view class='text-grey text-sm'>有效期:{{func.date(item.start_at)}}至{{func.date(item.end_at)}}</view>
+          </view>
+        </view>
+        <view class="action ">
+          <view class=" text-lg text-red">{{item.integral}}积分</view>
+         <button class="cu-btn round bg-red" bindtap='submit' data-id='{{item.id}}'>立即兑换</button>
+        </view>
+      </view>
+    </view>
+
+
+<!-- 计算类型券的类型 -->
+  <wxs module="func">
+            module.exports = {
+              catgory: function(id) {
+                switch (id) {
+                  case 1:
+                    return "特价券";
+                    break;
+                  case 2:
+                    return "买送券";
+                    break;
+                  case 3:
+                    return "第2件半价券";
+                    break;
+                  case 4:
+                    return "折扣券";
+                    break;
+                  case 5:
+                    return "满减券";
+                    break;
+                  case 6:
+                    return "代金券";
+                    break;
+                }
+              },
+               comput: function(id,config) {
+                switch (id) {
+                  case 1:
+                    return config.money+"元特价券";
+                    break;
+                  case 2:
+                    return "买送券";
+                    break;
+                  case 3:
+                    return "第2件半价券";
+                    break;
+                  case 4:
+                    return discount+"折优惠";
+                    break;
+                  case 5:
+                    return "满"+money+"减"+reduce_money;
+                    break;
+                  case 6:
+                    return money+"代金券";
+                    break;
+                }
+              },
+              date:function( date){
+              return date.substring(0,10)
+              
+              }
+            }
+          </wxs>
+</view>

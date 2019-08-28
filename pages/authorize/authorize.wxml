@@ -1,0 +1,7 @@
+<view class="auth">
+  <image src="https://i.loli.net/2019/04/29/5cc6b439ec68d.png" class="img" mode="aspectFill"></image>
+  <view class="title text-lg text-bold">微信授权页面</view>
+  <view class="describe">我们的小程序将获取您的以下权限：获取您的公开信息昵称和头像等，如未授权，可能无法正常使用该小程序。</view>
+  <button class="btn" open-type='getUserInfo' wx:if="{{canIUse}}" bindgetuserinfo='onAuth'>点击微信授权</button>
+  <navigator wx:if="{{!canIUse}}" class="btn" url="/pages/auth/auth" open-type="reLaunch" hover-class="other-navigator-hover">已经授权点击调转</navigator>
+</view>

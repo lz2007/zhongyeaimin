@@ -1,0 +1,12 @@
+<!--pages/newsdetails/newsdetails.wxml-->
+<view class='bg-white'>
+  <view class="flex solid-bottom padding justify-center bg-white">
+    <view class=" text-lg text-black">{{list.title}}</view>
+  </view>
+    <view class="flex  padding-top-sm  padding-left-sm justify-start">
+      <view class="">{{list.created_at}}</view>
+    </view>
+<view class="flex solid-bottom padding justify-start">
+      <view class="">{{list.content}}</view>
+    </view>
+</view>

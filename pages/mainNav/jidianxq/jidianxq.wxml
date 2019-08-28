@@ -1,0 +1,73 @@
+<view class='body bg-white'>
+  <!-- 图 -->
+  <view class="cu-card case no-card">
+    <view class="cu-item shadow solid-bottom">
+      <view class="image" bindtap="jidianxq">
+        <image src="{{list.images}}" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='grid col-1 margin-bottom left'>
+    <view class=' padding-top-sm padding-bottom-sm padding-left-sm text-lg text-black text-bold'>{{list.name}}</view>
+    <view class='  padding-bottom-sm padding-left-sm text-df text-gray'>库存剩余{{list.total}}件</view>
+  </view>
+
+  <view class='grid col-1 margin-bottom left'>
+    <view class='  padding-bottom-sm padding-left-sm text-lg text-black'>活动时间</view>
+    <view class='  padding-bottom-sm padding-left-sm text-df text-gray'>集点日期：{{func.date(list.start_at)}}至{{func.date(list.end_at)}}</view>
+  </view>
+
+  <view class=''>
+    <view class="flex solid-bottom padding justify-between">
+      <view class="text-black text-lg">活动规则</view>
+      <view class="text-lan text-sm" bindtap="showModal" data-target="Image">查看活动商品</view>
+    </view>
+    <view class='text-gray padding-sm text-df'>{{list.desc}}</view>
+  </view>
+
+  <view>
+    <view class="flex solid-bottom padding justify-between">
+      <view class="text-black text-lg">集点印章 {{list.num}}/12</view>
+    </view>
+
+    <view class="bg-white padding">
+      <view class="grid col-6 grid-square">
+        <view class="bg-img" wx:for="{{list.num}}" wx:key style="background-image:url(https://i.loli.net/2019/04/28/5cc55d575f146.png);"></view>
+          <view class="bg-img" wx:for="{{12 - list.num}}" wx:key style="background-image:url(https://i.loli.net/2019/05/15/5cdb6dea383f526653.png);"></view>
+      </view>
+    </view>
+  </view>
+  <view class="padding flex flex-direction">
+  <button class="cu-btn bg-blue lg text-white">参与抽奖</button>
+</view>
+
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="bg-img" style=";height:auto;">
+      <view class="cu-bar justify-center text-white">
+        <view class="action" bindtap="hideModal">
+        <view wx:for="{{list.config.goods}}" class="text-center">
+        <text class="cuIcon-close text-black ">{{item.name}}</text>
+         </view>
+          
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub  solid-left" bindtap="hideModal">我知道了</view>
+    </view>
+  </view>
+</view>
+
+
+
+<wxs module="func">
+            module.exports = {
+              date:function(date){
+              return date.substring(0,10)
+              
+              }
+            }
+          </wxs>
+</view>

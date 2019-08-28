@@ -1,0 +1,10 @@
+/* pages/mainNav /jifen/jifen.wxss */
+.cu-tag.badge{
+  top: 70rpx!important ;
+}
+.content{
+  width:400rpx!important 
+}
+.action{
+  width:100px!important 
+}

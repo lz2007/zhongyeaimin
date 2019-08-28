@@ -1,0 +1,8 @@
+<!--pages/news/news.wxml-->
+<view class='grid col-1 margin-bottom text-left bg-white'>
+<view class='padding solid-bottom' wx:for="{{list}}" wx:key  bindtap='xq' data-id='{{item.id}}'>
+<view class='title text-lg text-black'>{{item.title}}</view>
+<view class='conten text-cut'>{{item.content}}</view>
+</view>
+
+</view>

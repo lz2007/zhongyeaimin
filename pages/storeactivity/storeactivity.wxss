@@ -1,0 +1,15 @@
+/* pages/storeactivity/storeactivity.wxss */
+/* .content{
+  left: 20rpx !important;
+} */
+.img{
+  width:100rpx;
+height:100rpx;
+
+}
+.cu-tag.badge{
+  top: 70rpx!important ;
+}
+.action{
+width: 180rpx!important
+}

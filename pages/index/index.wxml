@@ -1,0 +1,111 @@
+<!--index.wxml-->
+<view class="container bg-white">
+  <view class="flex   justify-between">
+    <view class=" padding-sm  radius top">
+    <navigator url="/pages/location/location" hover-class="navigator-hover"><text class='icon-locationfill text-xl text-lan'></text> {{address}}</navigator>
+      </view>
+    <view class=" padding-sm  radius top">
+    <navigator url="/pages/news/news"hover-class="navigator-hover">
+    <view class="newsicon">
+    <view class="cu-tag badge" wx:if="{{newsnum > 0}}">{{newsnum}}</view>
+    <text class='icon-noticefill text-xl text-gray'></text>
+    </view>
+    
+    </navigator>
+      
+    </view>
+  </view>
+  <!-- 轮播 -->
+  <view class='swiper'>
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"indicator-dots="true">
+      <block wx:for="{{imgUrls}}" wx:key>
+        <swiper-item>
+          <image src="{{item.images}}" class="slide-image" width="1000" height="150" bindtap='submit'data-id="{{item.id}}"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 二维码内容 -->
+  <view class='code'>
+    <!-- <view class='co-top'>
+      <view class='top-pad flex solid-bottom padding justify-start flex solid-bottom'>
+        <image src='{{userInfo.avatar}}' class='image'></image>
+        <text class='text-white text-center padding-left-sm text-lg text-cut'>{{userInfo.nickname}}</text>
+        <view class="flex   justify-between" bindtap="code">
+          <view class=" padding-sm margin-xs "></view>
+          <image src='../images/ewcode.png' class='  margin-left-lg'></image>
+          <text class='icon-right   text-white padding-left-sm tt'></text>
+        </view>
+      </view>
+      <view class="co-bottom flex" >
+        <view class="flex-sub justify-center text-center solid-right"bindtap="quan" data-type="1">
+          <text class="text-lan text-xl">{{integral}}</text>
+          <text class='text-gray'>积分</text>
+        </view>
+        <view class="flex-sub   margin-xs justify-center text-center solid-right"  bindtap="quan" data-type="2">
+          <text class="text-lan text-xl">{{Coupon}}</text>
+          <text class='text-gray'>券单</text>
+        </view>
+        <view class="flex-sub   margin-xs justify-center text-center" bindtap='bill'>
+          <text class="text-lan text-xl">查看</text ><text class='text-gray'>账单</text>
+        </view>
+      </view>
+    </view> -->
+    <!-- top -->
+    <view class="co-top flex solid-bottom padding justify-between">
+   <view class="shang" >
+    <image src='{{userInfo.avatar}}' class='image left'></image>
+    <view class="tt left">
+    <text class='text-white text-center padding-left-sm text-lg text-cut'>{{userInfo.nickname}}</text>
+    </view>
+        
+   </view>
+   <view class="xia " bindtap="code">
+    <image src='../images/ewcode.png' class='  margin-left-lg left'></image>
+    <view class="left tt ">
+ <text class='icon-right   text-white padding-left-sm '></text>
+    </view>
+         
+   </view>
+    </view>
+<!-- bootom -->
+ <view class="co-bottom flex" >
+        <view class="flex-sub margin-tb-sm justify-center text-center bor"bindtap="quan" data-type="1">
+          <text class="text-lan text-xl">{{integral}}</text>
+          <text class='text-gray'>积分</text>
+        </view>
+        <view class="flex-sub margin-tb-sm justify-center text-center bor"  bindtap="quan" data-type="2">
+          <text class="text-lan text-xl">{{Coupon}}</text>
+          <text class='text-gray'>券单</text>
+        </view>
+        <view class="flex-sub margin-tb-sm justify-center text-center" bindtap='bill'>
+          <text class="text-lan text-xl">查看</text ><text class='text-gray'>账单</text>
+        </view>
+      </view>
+
+  </view>
+  <!-- 聚实惠 -->
+  <view class="cu-list grid col-4 no-border" hover-class="none" hover-stop-propagation="false">
+    <view class="cu-item" hover-stop-propagation="false" wx:for="{{iconList}}" wx:key="index" >
+      <view class=" text-red "bindtap='huodong' id="{{index}}">
+        <!-- <view class="cu-tag badge" hover-class="none" hover-stop-propagation="false">99+</view> -->
+        <image src="{{item.icon}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 会员图片 -->
+  <view class='grid col-2 grid-square' style="height:90px;width:80%;margin:0 auto;;">
+    <view class="bg-img" wx:for="{{hdxq}}" wx:key="index" style="background-image:url({{item.images}})"bindtap="hdxq" data-id="{{item.id}}"></view>
+    
+  </view>
+
+  <!-- 会员专享 -->
+  <view class="flex solid-bottom padding-xs justify-between">
+    <view class=" padding-sm margin-xs radius">会员专享</view>
+    <view class=" padding-sm margin-xs radius" bindtap='check'>查看更多
+      <text class='icon-right lg text-gray'></text>
+    </view>
+  </view>
+  
+</view>

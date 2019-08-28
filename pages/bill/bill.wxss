@@ -1,0 +1,4 @@
+/* pages/bill/bill.wxss */
+.action{
+width: 180rpx!important
+}

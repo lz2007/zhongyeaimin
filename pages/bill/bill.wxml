@@ -1,0 +1,27 @@
+<view class="container">
+  <!-- 头部图形信息 -->
+  <view class="flex padding-sm  justify-between solid-bottom bg-white">
+    <!-- <view class="  ">三月份账单 <text class='icon-triangledownfill text-xl'></text></view> -->
+    <view class="justify-center">
+      <picker bindchange="PickerChange" range="{{datelabel}}" value="{{index}}" range-key='name'>
+        <view class="picker">
+          {{datelabel[index].name}}
+           <text class="icon-triangledownfill"></text>
+        </view>
+      </picker>
+     
+    </view>
+  </view>
+  <canvas canvas-id="pieCanvas" class="canvas bg-white" style="height:300px;width:100%;" bindtouchstart="touchHandler"></canvas>
+  <view class="flex padding-sm  justify-between solid-bottom bg-white">
+    <view class="  ">获得积分：{{integral}}</view>
+  </view>
+  <!-- 消费信息 -->
+    <view class="flex padding-xs  justify-between solid-bottom bg-white"wx:for="{{list}}" wx:key="index">
+      <view class=" grid col-1 padding-xs text-left ">
+        <view class='text-gray text-df'>{{item.desc}}</view>
+        <view class='text-gray text-df'>{{item.created_at}}</view>
+      </view>
+      <view class="  text-blue text-xl padding-xs">{{item.integral}}</view>
+    </view>
+</view>

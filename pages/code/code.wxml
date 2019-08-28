@@ -1,0 +1,20 @@
+<view class="container page">
+  <view class="panel">
+    <view class="header  bg-white text-left padding-sm solid-bottom text-lan text-lg">
+    当前积分：{{integral}}
+    </view>
+    <view class="barcode">
+    <text class='padding-sm text-lg text-grey'>向商家付款</text>
+      <canvas canvas-id="barcode" />
+          <view class="barnum">{{code}}</view>
+    </view>
+    <!-- <view class="qrcode">
+      <canvas canvas-id="qrcode" />
+    </view> -->
+  </view>
+  <view class="padding flex flex-direction">
+  <button class="cu-btn bg-white lg btn text-black" bindtap='startSetInter'data-type="1">微信支付</button>
+</view>
+<view class='Tips text-white text-lg padding-left-sm padding-top-xl'>温馨提示</view>
+<view class='Tips text-white text-df padding-left-sm padding-top-lg'>付款码仅用于付钱时向收银员出示，为防止诈骗，请勿发送给他人</view>
+</view>

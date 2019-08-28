@@ -1,0 +1,9 @@
+/* pages/Coupon/Coupon.wxss */
+.img{
+  width:100rpx;
+height:100rpx;
+
+}
+.cu-tag.badge{
+  top: 70rpx!important ;
+}

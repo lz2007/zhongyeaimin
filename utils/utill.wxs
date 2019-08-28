@@ -1,0 +1,50 @@
+module.exports = {
+  catgory: function (id) {
+    switch (id) {
+      case 1:
+        return "特价券";
+        break;
+      case 2:
+        return "买送券";
+        break;
+      case 3:
+        return "第2件半价券";
+        break;
+      case 4:
+        return "折扣券";
+        break;
+      case 5:
+        return "满减券";
+        break;
+      case 6:
+        return "代金券";
+        break;
+    }
+  },
+  comput: function (id, config) {
+    switch (id) {
+      case 1:
+        return config.money + "元特价券";
+        break;
+      case 2:
+        return "买送券";
+        break;
+      case 3:
+        return "第2件半价券";
+        break;
+      case 4:
+        return discount + "折优惠";
+        break;
+      case 5:
+        return "满" + money + "减" + reduce_money;
+        break;
+      case 6:
+        return money + "代金券";
+        break;
+    }
+  },
+  date: function (date) {
+    return date.substring(0, 10)
+
+  }
+}

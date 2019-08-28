@@ -1,0 +1,135 @@
+<!--pages/Coupon/Coupon.wxml-->
+<view class='body bg-white'>
+  <!-- 头部信息 -->
+  <view class="flex  padding align-center  solid-bottom">
+    <view class=" cu-avatar xl round margin-left" style=" background-image:url({{userinfo.avatar}});"></view>
+    <view class="grid col-1  text-center" style="width: 26%;">
+      <view class=' padding-xs text-black text-left' style="width: 80%; margin:0 auto">{{userinfo.nickname}} </view>
+      <view class='cu-tag round bg-red' style="width: 80%; margin:0 auto">积分:{{integral}}</view>
+    </view>
+    <view class="grid col-1  text-right" style="width: 50%;">
+      <view class=' padding-xs text-black   text-right' style="width: 80%; margin:0 auto">
+        <navigator url='/pages/vipinformation/vipinformation'> 会员信息
+          <text class='icon-right lg text-gray'></text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <!-- nav -->
+  <scroll-view scroll-x class="bg-white nav text-center solid-bottom">
+    <view class="cu-item {{index==TabCur?'text-red cur':''}}" wx:for="{{navlist}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <view wx:if="{{TabCur == 0}}">
+    <!-- nav1 -->
+    <scroll-view scroll-x class="bg-white nav solid-bottom">
+      <view class="flex text-center">
+        <view class="cu-item flex-sub {{index==TabCur1?'text-orange cur':''}}" wx:for="{{nav1list}}" wx:key bindtap="tabSelect1" data-id="{{index}}">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 优惠券信息 -->
+    <view class='cu-list menu-avatar' wx:for="{{Coupon}}" wx:key wx:if="{{TabCur1 == item.use_status || TabCur1 == 0 }}">
+      <view class="cu-item padding-tb-sm  solid-bottom" >
+        <view class="cu-avatar radius lg" style="background-image:url({{item.card.images}});">
+        
+          <view class="cu-tag badge text-sm">{{func.catgory(item.card.catgory)}}</view>
+        </view>
+        <view class="content">
+          <view class=" flex grid col-1  ">
+            <view class="text-black">
+              {{item.card.name}}
+            </view>
+            <!-- 5元代金券 满20使用 -->
+            <view class='text-red text-df'>{{func.comput(item.card.catgory,item.card.config)}}</view>
+            <view class='text-grey text-sm'>有效期:{{func.date(item.start_at)}}至{{func.date(item.end_at)}}</view>
+          </view>
+        </view>
+        <view class="action ">
+          <view class="text-grey text-lg" wx:if="{{item.use_status == 2}}">已使用</view>
+            <view class="text-grey text-lg" wx:if="{{item.use_status == 1}}"> 待使用</view>
+              <view class="text-grey text-lg" wx:if="{{item.use_status == 3}}">已过期</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <!-- 我的积分 -->
+  <view class='' wx:if="{{TabCur == 1}}">
+    <view class="flex padding-sm  justify-between solid-bottom">
+      <view class="  ">积分记录</view>
+      <!-- triangleupfill -->
+      <view class="  ">全部
+        <text class='icon-triangledownfill text-xl'></text>
+      </view>
+    </view>
+    <!-- 积分记录 -->
+    <view class="flex padding-xs  justify-between solid-bottom "wx:for="{{integralR}}" wx:key="index">
+      <view class=" grid col-1 padding-xs text-left ">
+        <view class='text-gray text-df'>{{item.desc}}</view>
+        <view class='text-gray text-df'>{{item.created_at}}</view>
+      </view>
+      <view class="  text-blue text-xl padding-xs">{{item.type == 0? '-'+item.integral:'+'+item.integral}}</view>
+    </view>
+  </view>
+
+<!-- 计算类型券的类型 -->
+  <wxs module="func">
+            module.exports = {
+              catgory: function(id) {
+                switch (id) {
+                  case 1:
+                    return "特价券";
+                    break;
+                  case 2:
+                    return "买送券";
+                    break;
+                  case 3:
+                    return "第2件半价券";
+                    break;
+                  case 4:
+                    return "折扣券";
+                    break;
+                  case 5:
+                    return "满减券";
+                    break;
+                  case 6:
+                    return "代金券";
+                    break;
+                }
+              },
+               comput: function(id,config) {
+                switch (id) {
+                  case 1:
+                    return config.vip_price+"元特价券";
+                    break;
+                  case 2:
+                    return "买送券";
+                    break;
+                  case 3:
+                    return "第2件半价券";
+                    break;
+                  case 4:
+                    return discount+"折优惠";
+                    break;
+                  case 5:
+                    return "满"+money+"减"+reduce_money;
+                    break;
+                  case 6:
+                    return money+"代金券";
+                    break;
+                }
+              },
+              date:function( date){
+              return date.substring(0,10)
+              
+              }
+            }
+          </wxs>
+</view>
