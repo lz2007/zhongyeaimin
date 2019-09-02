@@ -71,6 +71,12 @@ Page({
       }
     })
   },
+  // 跳转到会员信息
+  imageclick:function(){
+    wx.navigateTo({
+      url: '/pages/vipinformation/vipinformation'
+    });
+  },
   huodong: function (e) {
    
     if (e.currentTarget.id == 0){

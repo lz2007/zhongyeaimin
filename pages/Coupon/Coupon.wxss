@@ -1,9 +1,29 @@
 /* pages/Coupon/Coupon.wxss */
-.img{
-  width:100rpx;
-height:100rpx;
+.img {
+  width: 100rpx;
+  height: 100rpx;
 
 }
-.cu-tag.badge{
-  top: 70rpx!important ;
+
+.cu-tag.badge {
+  top: 70rpx !important;
+}
+
+.coupon-list {
+  background: #F1F0F5;
+}
+
+.coupon-line {
+  position: absolute;
+  right: 90px;
+  top: 2;
+  width: 1px;
+  border: 1rpx dashed #F1F0F5;
+  height: 84px;
+}
+
+.cardType {
+  width: 80px;
+  height: 80px;
+  margin-left: -30px;
 }

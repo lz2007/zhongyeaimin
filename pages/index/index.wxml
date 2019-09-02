@@ -53,7 +53,7 @@
     </view> -->
     <!-- top -->
     <view class="co-top flex solid-bottom padding justify-between">
-   <view class="shang" >
+   <view class="shang" bindtap="imageclick">
     <image src='{{userInfo.avatar}}' class='image left'></image>
     <view class="tt left">
     <text class='text-white text-center padding-left-sm text-lg text-cut'>{{userInfo.nickname}}</text>
@@ -95,7 +95,7 @@
     </view>
   </view>
   <!-- 会员图片 -->
-  <view class='grid col-2 grid-square' style="height:90px;width:80%;margin:0 auto;;">
+  <view class='grid col-2 grid-square' style="height:90px;width:90%;margin:0 auto;;">
     <view class="bg-img" wx:for="{{hdxq}}" wx:key="index" style="background-image:url({{item.images}})"bindtap="hdxq" data-id="{{item.id}}"></view>
     
   </view>

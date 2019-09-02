@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "cu-progress": "../../../component/cu-progress/cu-progress"
+  },
   "navigationBarTitleText": "聚实惠"
 }

@@ -1,37 +1,9 @@
-/* pages/mainNav /jushihui/jushihui.wxss */
-
-.img {
-  width: 100rpx;
-  height: 100rpx;
-}
-
-.cu-tag.badge {
-  top: 70rpx !important;
-}
-
-.action {
-  width: 180rpx !important;
-}
-
-.cu-progress {
-  height: 38rpx !important;
-}
-
-.coupon-line {
-  position: absolute;
-  right: 90px;
-  top: 2;
-  width: 1px;
-  border: 1rpx dashed #F1F0F5;
-  height: 84px;
-}
-
 .canvasBox {
   position: relative;
   width: 110rpx;
   height: 110rpx;
-  top: -2rpx;
-  right: -52rpx;
+  top: -5rpx;
+  right: -38rpx;
 }
 
 .bigCircle {
