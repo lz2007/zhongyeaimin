@@ -1,15 +1,18 @@
-<!--pages/Coupon/Coupon.wxml-->
+<!-- pages/Coupon/Coupon.wxml -->
 <view class='body bg-white'>
   <!-- 头部信息 -->
   <view class="flex  padding align-center  solid-bottom">
     <view class=" cu-avatar xl round margin-left" style=" background-image:url({{userinfo.avatar}});"></view>
     <view class="grid col-1  text-center" style="width: 26%;">
-      <view class=' padding-xs text-black text-left' style="width: 80%; margin:0 auto">{{userinfo.nickname}} </view>
+      <view class=' padding-xs text-black text-left' style="width: 80%; margin:0 auto">
+        {{userinfo.nickname}}
+      </view>
       <view class='cu-tag round bg-red' style="width: 80%; margin:0 auto">积分:{{integral}}</view>
     </view>
     <view class="grid col-1  text-right" style="width: 50%;">
       <view class=' padding-xs text-black   text-right' style="width: 80%; margin:0 auto">
-        <navigator url='/pages/vipinformation/vipinformation'> 会员信息
+        <navigator url='/pages/vipinformation/vipinformation'>
+          会员信息
           <text class='icon-right lg text-gray'></text>
         </navigator>
       </view>
@@ -21,7 +24,6 @@
       {{item.name}}
     </view>
   </scroll-view>
-
   <view class="coupon-list" wx:if="{{TabCur == 0}}">
     <!-- nav1 -->
     <scroll-view scroll-x class="bg-white nav solid-bottom">
@@ -31,61 +33,65 @@
         </view>
       </view>
     </scroll-view>
-
     <!-- 优惠券信息 -->
     <view class='cu-list menu-avatar' wx:for="{{Coupon}}" wx:key wx:if="{{TabCur1 == item.use_status || TabCur1 == 0 }}">
-      <view class="cu-item padding-tb-sm  solid-bottom" >
+      <view class="cu-item padding-tb-sm  solid-bottom">
         <view class="cu-avatar radius lg" style="background-image:url({{item.card.images}});">
-        
           <view class="cu-tag badge text-sm">{{func.catgory(item.card.catgory)}}</view>
         </view>
-
         <view class="content">
           <view class=" flex grid col-1  ">
-            <view class="text-black">
-              {{item.card.name}}
-            </view>
+            <view class="text-black">{{item.card.name}}</view>
             <!-- 5元代金券 满20使用 -->
-            <view class='text-red text-df'>{{func.comput(item.card.catgory,item.card.config)}}</view>
-            <view class='text-grey text-sm'>有效期:{{func.date(item.start_at)}}至{{func.date(item.end_at)}}</view>
+            <view class='text-red text-df'>
+              {{func.comput(item.card.catgory,item.card.config)}}
+            </view>
+            <view class='text-grey text-sm'>
+              有效期:{{func.date(item.start_at)}}至{{func.date(item.end_at)}}
+            </view>
           </view>
         </view>
-
         <view class="action ">
-          <view class="text-grey text-lg cardType"  style="background:url(../images/yishiyong.png) no-repeat;" wx:if="{{item.use_status == 2}}"></view>
-          <view class="text-grey text-lg cardType" style="background:url(../images/daishiyong.png) no-repeat;" wx:if="{{item.use_status == 1}}"></view>
-          <view class="text-grey text-lg cardType"  style="background:url(../images/yiguoqi.png) no-repeat;" wx:if="{{item.use_status == 3}}"></view>
+          <view class="text-grey text-lg cardType yishiiyong" wx:if="{{item.use_status == 2}}">
+            已使用
+          </view>
+          <view class="text-grey text-lg cardType daishiyong" wx:if="{{item.use_status == 1}}">
+            未使用
+          </view>
+          <view class="text-grey text-lg cardType yiguoqi" wx:if="{{item.use_status == 3}}">
+            已过期
+          </view>
+          <!-- <view class="text-grey text-lg cardType"  style="background:url(../images/yishiyong.png) no-repeat;" wx:if="{{item.use_status == 2}}">已使用</view>
+          <view class="text-grey text-lg cardType" style="background:url(../images/daishiyong.png) no-repeat;" wx:if="{{item.use_status == 1}}">未使用</view>
+          <view class="text-grey text-lg cardType"  style="background:url(../images/yiguoqi.png) no-repeat;" wx:if="{{item.use_status == 3}}">已过期</view> -->
         </view>
         <!-- 线 -->
-        <view class="coupon-line">
-
-        </view>
+        <!-- <view class="coupon-line"></view> -->
       </view>
     </view>
   </view>
-
-
-
   <!-- 我的积分 -->
   <view class='' wx:if="{{TabCur == 1}}">
     <view class="flex padding-sm  justify-between solid-bottom">
       <view class="  ">积分记录</view>
       <!-- triangleupfill -->
-      <view class="  ">全部
+      <view class="  ">
+        全部
         <text class='icon-triangledownfill text-xl'></text>
       </view>
     </view>
     <!-- 积分记录 -->
-    <view class="flex padding-xs  justify-between solid-bottom "wx:for="{{integralR}}" wx:key="index">
+    <view class="flex padding-xs  justify-between solid-bottom " wx:for="{{integralR}}" wx:key="index">
       <view class=" grid col-1 padding-xs text-left ">
         <view class='text-gray text-df'>{{item.desc}}</view>
         <view class='text-gray text-df'>{{item.created_at}}</view>
       </view>
-      <view class="  text-blue text-xl padding-xs">{{item.type == 0? '-'+item.integral:'+'+item.integral}}</view>
+      <view class="  text-blue text-xl padding-xs">
+        {{item.type == 0? '-'+item.integral:'+'+item.integral}}
+      </view>
     </view>
   </view>
-
-<!-- 计算类型券的类型 -->
+  <!-- 计算类型券的类型 -->
   <wxs module="func">
             module.exports = {
               catgory: function(id) {
