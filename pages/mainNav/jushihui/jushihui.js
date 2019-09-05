@@ -118,8 +118,6 @@ Page({
     })
   },
   showModal(e) {
-    console.log(e);
-
     this.setData({
       modalName: e.currentTarget.dataset.target
     });

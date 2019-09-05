@@ -25,6 +25,21 @@ Component({
     },
     data: {},
     methods: {
+        handleCanvarToImg(that) {
+            wx.canvasToTempFilePath({
+                x: 0,
+                y: 0,
+                width: 100,
+                height: 100,
+                canvasId: that.data.drawId,
+                success: function (res) {
+                    that.setData({
+                        radarImg: res.tempFilePath
+                    });
+                }
+            }, this);
+
+        },
         // 绘制圆形进度条方法
         run(c, w, h, ctx2) {
             var num = (2 * Math.PI / 100 * c) - 0.5 * Math.PI;
@@ -51,6 +66,9 @@ Component({
             var that = this;
             start++;
             if (start > end) {
+                setTimeout(() => {
+                    this.handleCanvarToImg(this)
+                },100);
                 return false;
             }
             that.run(start, w, h, ctx2);

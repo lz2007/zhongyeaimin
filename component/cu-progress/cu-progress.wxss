@@ -4,6 +4,7 @@
   height: 110rpx;
   top: -5rpx;
   right: -38rpx;
+  z-index: 100;
 }
 
 .bigCircle {

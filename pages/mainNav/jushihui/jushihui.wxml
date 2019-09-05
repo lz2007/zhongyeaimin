@@ -29,7 +29,7 @@
       <view class="cu-avatar radius lg" style="background-image:url({{item.images}});">
         <view class="cu-tag badge text-sm">{{func.catgory(item.catgory)}}</view>
       </view>
-      <view class="content" bindtap="showModal" data-image="{{item.images}}" data-name="{{item.name}}" data-start="{{item.start_at}}" data-end="{{item.end_at}}" data-desc="{{item.desc}}" data-target="Modal">
+      <view class="content" bindtap="showModal" data-progress="{{'cu-progress-com'+item.id}}" data-image="{{item.images}}" data-name="{{item.name}}" data-start="{{item.start_at}}" data-end="{{item.end_at}}" data-desc="{{item.desc}}" data-target="Modal">
         <view class=" flex grid col-1  ">
           <view class="text-black">{{item.name}}</view>
           <!-- 5元代金券 满20使用 -->
@@ -39,14 +39,14 @@
           </view>
         </view>
       </view>
-      <view class="action ">
+      <view class="action" style="right: -10rpx;">
         <!-- <view>剩余:{{item.total == -1? 100:item.grant_total/item.total}}% </view> -->
         <!-- <view class="cu-progress round ">
           <view class="bg-red" style="width:{{item.total == -1? 100:item.grant_total/item.total}}%; min-width:20%">
             {{item.total == -1? 100:item.grant_total/item.total*100}}%
           </view>
         </view> -->
-        <cu-progress drawId="{{'cu-progress'+item.id}}" percentage="{{item.total == -1? 100:item.grant_total/item.total*100}}"></cu-progress>
+        <cu-progress id="{{'cu-progress-com'+item.id}}" drawId="{{'cu-progress'+item.id}}" percentage="{{item.total == -1? 100:item.grant_total/item.total*100}}"></cu-progress>
         <view class="text-grey text-lg" style="margin-bottom: 1.5px;margin-left: 2px;">
           <button class='cu-btn round bg-red' bindtap='Receive' data-id="{{item.id}}">立即领取</button>
         </view>
