@@ -43,7 +43,7 @@ Page({
   },
   load(storeindex, goodindex) {
     const self = this
-    // console.log(storeindex) 
+    // console.log(storeindex) x
     if (storeindex) {
       var storeindex = storeindex
     } else {
