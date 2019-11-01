@@ -69,7 +69,7 @@ Page({
           res.catgory.map((item, index) => {
             // + '/?catgory=' + item.id
             app.request({
-              url: 'store/' + self.data.store[storeindex].id
+              url: 'store/' + self.data.store[storeindex].id + '/?catgory=' + item.id
             }).then(res => {
               // console.log(res)
               const Coupon1 = self.data.Coupon;
@@ -116,5 +116,25 @@ Page({
         })
       }
     })
-  }
+  },
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    });
+
+    this.setData({
+      userinfoData: {
+        name: e.currentTarget.dataset.name,
+        start: e.currentTarget.dataset.start,
+        end: e.currentTarget.dataset.end,
+        desc: e.currentTarget.dataset.desc,
+        image: e.currentTarget.dataset.image,
+      }
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
+  },
 })

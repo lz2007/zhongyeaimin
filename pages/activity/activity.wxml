@@ -21,11 +21,9 @@
           <text class="text-cut">{{item.address}}</text>
         </view>
       </view>
-      <view class=" margin-tb-sm text-center">
-        <button class="cu-btn round line-red button-hover" bindtap='storeactivity' data-id='{{item.id}}'>
-          立即进入
-        </button>
-      </view>
+        <view class=" margin-tb-sm text-center" style="margin-right: -35px;">
+  <button class="cu-btn round line-red button-hover"bindtap='storeactivity' data-id='{{item.id}}'>立即进入</button>
+</view>
     </view>
   </view>
   <view wx:if="{{!list}}">附近暂无门店</view>

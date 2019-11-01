@@ -27,6 +27,13 @@ Page({
   },
   onLoad:function(){
     const self = this
+    const quan_type = wx.getStorageSync('quan_type');
+    if (quan_type == 1) {
+        self.setData({
+          TabCur:1,
+          scrollLeft:-60
+        })
+    }
     self.setData({
       userinfo: wx.getStorageSync("userInfo"),
     })

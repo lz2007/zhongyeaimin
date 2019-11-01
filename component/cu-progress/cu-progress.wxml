@@ -1,5 +1,6 @@
 <view class='canvasBox'>
   <view class='bigCircle'></view>
   <view class='littleCircle'></view>
-  <canvas canvas-id="{{drawId}}" id="{{drawId}}"  class='canvas'></canvas>
+  <canvas canvas-id="{{drawId}}" id="{{drawId}}"  wx:if="{{!radarImg}}" class='canvas'></canvas>
+  <image wx:else src="{{radarImg}}" style="width: 100rpx; height: 100rpx;" />
 </view>

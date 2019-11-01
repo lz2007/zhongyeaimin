@@ -16,5 +16,5 @@
   <button class="cu-btn bg-white lg btn text-black" bindtap='startSetInter'data-type="1">微信支付</button>
 </view>
 <view class='Tips text-white text-lg padding-left-sm padding-top-xl'>温馨提示</view>
-<view class='Tips text-white text-df padding-left-sm padding-top-lg'>付款码仅用于付钱时向收银员出示，为防止诈骗，请勿发送给他人</view>
+<view class='Tips text-white text-df padding-left-sm padding-top-lg'>付款码仅用于支付时出示，请勿发送他人。</view>
 </view>
